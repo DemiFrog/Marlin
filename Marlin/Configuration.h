@@ -416,6 +416,7 @@
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
 #define TEMP_SENSOR_0 1
+#define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
@@ -466,6 +467,7 @@
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
 #define HEATER_0_MAXTEMP 260
+#define HEATER_0_MAXTEMP 275 // Max temp on priner will be 15° less, thus 260
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -502,6 +504,9 @@
     #define DEFAULT_Kp  22.20
     #define DEFAULT_Ki   1.08
     #define DEFAULT_Kd 114.00
+    #define DEFAULT_Kp  23.44
+    #define DEFAULT_Ki   1.73
+    #define DEFAULT_Kd  79.32
   #endif
 #endif // PIDTEMP
 
@@ -543,6 +548,9 @@
   #define DEFAULT_bedKp  39.11
   #define DEFAULT_bedKi   7.28
   #define DEFAULT_bedKd 140.04
+  #define DEFAULT_bedKp  36.96
+  #define DEFAULT_bedKi   6.08
+  #define DEFAULT_bedKd 133.94
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -566,6 +574,7 @@
  */
 #define PREVENT_COLD_EXTRUSION
 #define EXTRUDE_MINTEMP 170
+#define EXTRUDE_MINTEMP 170  //default is 170
 
 /**
  * Prevent a single extrusion longer than EXTRUDE_MAXLENGTH.
@@ -986,7 +995,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -43, -4, -3.20 }
+#define NOZZLE_TO_PROBE_OFFSET { -44, -3, -3.20 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1093,7 +1102,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true
+#define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1122,7 +1131,7 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 310
+#define X_BED_SIZE 305
 #define Y_BED_SIZE 310
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
@@ -1281,7 +1290,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 5
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
