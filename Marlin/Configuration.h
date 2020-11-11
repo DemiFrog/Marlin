@@ -415,7 +415,6 @@
  *   998 : Dummy Table that ALWAYS reads 25°C or the temperature defined below.
  *   999 : Dummy Table that ALWAYS reads 100°C or the temperature defined below.
  */
-#define TEMP_SENSOR_0 1
 #define TEMP_SENSOR_0 5
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
@@ -466,7 +465,6 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 260
 #define HEATER_0_MAXTEMP 275 // Max temp on priner will be 15° less, thus 260
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
@@ -501,9 +499,6 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp  22.20
-    #define DEFAULT_Ki   1.08
-    #define DEFAULT_Kd 114.00
     #define DEFAULT_Kp  23.44
     #define DEFAULT_Ki   1.73
     #define DEFAULT_Kd  79.32
@@ -545,9 +540,6 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp  39.11
-  #define DEFAULT_bedKi   7.28
-  #define DEFAULT_bedKd 140.04
   #define DEFAULT_bedKp  36.96
   #define DEFAULT_bedKi   6.08
   #define DEFAULT_bedKd 133.94
@@ -573,7 +565,6 @@
  * *** IT IS HIGHLY RECOMMENDED TO LEAVE THIS OPTION ENABLED! ***
  */
 #define PREVENT_COLD_EXTRUSION
-#define EXTRUDE_MINTEMP 170
 #define EXTRUDE_MINTEMP 170  //default is 170
 
 /**
