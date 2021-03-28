@@ -1859,6 +1859,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
+#define MINIMUM_STEPPER_PULSE 3 // Was 2, set to 3 for S42B
 
 /**
  * Maximum stepping rate (in Hz) the stepper driver allows
@@ -1872,6 +1873,7 @@
  *
  * Override the default value based on the driver type set in Configuration.h.
  */
+#define MAXIMUM_STEPPER_RATE 150000 //Was 250000, set to 150000 for S42B
 
 // @section temperature
 
